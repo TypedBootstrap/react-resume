@@ -1,5 +1,12 @@
 import { IconName } from '@fortawesome/fontawesome-common-types';
 
+export type Certification = {
+    colour: string;
+    description: string;
+    icon: IconName;
+    place?: number;
+};
+
 export type Experience = {
     title: string;
     companyName: string;

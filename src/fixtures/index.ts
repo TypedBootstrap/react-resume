@@ -1,3 +1,4 @@
+export { default as certifications } from './certifications';
 export { default as experiences } from './experiences';
 export { default as interests } from './interests';
 export { default as profile } from './profile';

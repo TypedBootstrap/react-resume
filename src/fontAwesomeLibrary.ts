@@ -13,7 +13,7 @@ import {
     faSass,
     faWordpress
 } from '@fortawesome/free-brands-svg-icons';
-import { faCheck } from '@fortawesome/free-solid-svg-icons';
+import { faCheck, faTrophy } from '@fortawesome/free-solid-svg-icons';
 
 library.add(
     fab,
@@ -28,5 +28,6 @@ library.add(
     faNpm,
     faReact,
     faSass,
+    faTrophy,
     faWordpress
 );

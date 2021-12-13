@@ -1,60 +1,63 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Certification } from '../types';
 import { Heading, Section } from './common';
 
-const AwardsSection: React.FC = () => (
-    <Section id="awards">
-        <Heading>Awards &amp; Certifications</Heading>
-        <ul className="fa-ul mb-0">
-            <li>
-                <span className="fa-li">
-                    <i className="fas fa-trophy text-warning"></i>
-                </span>
-                Google Analytics Certified Developer
-            </li>
-            <li>
-                <span className="fa-li">
-                    <i className="fas fa-trophy text-warning"></i>
-                </span>
-                Mobile Web Specialist - Google Certification
-            </li>
-            <li>
-                <span className="fa-li">
-                    <i className="fas fa-trophy text-warning"></i>
-                </span>
-                1<sup>st</sup>
-                Place - University of Colorado Boulder - Emerging Tech Competition 2009
-            </li>
-            <li>
-                <span className="fa-li">
-                    <i className="fas fa-trophy text-warning"></i>
-                </span>
-                1<sup>st</sup>
-                Place - University of Colorado Boulder - Adobe Creative Jam 2008 (UI Design
-                Category)
-            </li>
-            <li>
-                <span className="fa-li">
-                    <i className="fas fa-trophy text-warning"></i>
-                </span>
-                2<sup>nd</sup>
-                Place - University of Colorado Boulder - Emerging Tech Competition 2008
-            </li>
-            <li>
-                <span className="fa-li">
-                    <i className="fas fa-trophy text-warning"></i>
-                </span>
-                1<sup>st</sup>
-                Place - James Buchanan High School - Hackathon 2006
-            </li>
-            <li>
-                <span className="fa-li">
-                    <i className="fas fa-trophy text-warning"></i>
-                </span>
-                3<sup>rd</sup>
-                Place - James Buchanan High School - Hackathon 2005
-            </li>
-        </ul>
-    </Section>
-);
+interface AwardsSectionProps {
+    certifications: Certification[];
+}
+
+const AwardsSection: React.FC<AwardsSectionProps> = ({ certifications }) => {
+    const place = (place?: number) => {
+        if (place === 1) {
+            return (
+                <>
+                    {place}
+                    <sup>st</sup> Place -{' '}
+                </>
+            );
+        }
+
+        if (place === 2) {
+            return (
+                <>
+                    {place}
+                    <sup>nd</sup> Place -{' '}
+                </>
+            );
+        }
+
+        if (place === 3) {
+            return (
+                <>
+                    {place}
+                    <sup>rd</sup> Place -{' '}
+                </>
+            );
+        }
+
+        return null;
+    };
+
+    return (
+        <Section id="awards">
+            <Heading>Awards &amp; Certifications</Heading>
+            <ul className="fa-ul mb-0">
+                {certifications.map((certification, i) => (
+                    <li key={i}>
+                        <span className="fa-li">
+                            <FontAwesomeIcon
+                                color={certification.colour}
+                                icon={certification.icon}
+                            />
+                        </span>
+                        {place(certification.place)}
+                        {certification.description}
+                    </li>
+                ))}
+            </ul>
+        </Section>
+    );
+};
 
 export default AwardsSection;

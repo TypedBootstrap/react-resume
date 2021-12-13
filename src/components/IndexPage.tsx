@@ -1,6 +1,14 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
-import { experiences, interests, profile, schools, skills, workflows } from '../fixtures';
+import {
+    certifications,
+    experiences,
+    interests,
+    profile,
+    schools,
+    skills,
+    workflows,
+} from '../fixtures';
 import AboutSection from './AboutSection';
 import AwardsSection from './AwardsSection';
 import { Divider } from './common';
@@ -26,7 +34,7 @@ const IndexPage: React.FC = () => (
         <InterestsSection interests={interests} />
         <Divider />
 
-        <AwardsSection />
+        <AwardsSection certifications={certifications} />
     </Container>
 );
 
